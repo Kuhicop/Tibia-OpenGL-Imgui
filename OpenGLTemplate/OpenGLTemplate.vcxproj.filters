@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{3c78da70-9439-4cf5-a290-6a4d491f5be8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\ImGui">
+      <UniqueIdentifier>{136a6f37-f5c1-4082-9ef6-c3f7a3ea8d33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Functions">
+      <UniqueIdentifier>{d1869b9b-2dab-425b-a7b4-a2ca4e63e5b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Header">
+      <UniqueIdentifier>{de114199-04bc-4ecd-92e3-cb7e4d3b5325}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Sources">
+      <UniqueIdentifier>{c2a804d7-c6d2-4f5e-a889-44f9dc8e932b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Hooks">
+      <UniqueIdentifier>{cb6615b5-7b93-4028-a9ba-89ed8ce7872d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\OpenGLHook">
+      <UniqueIdentifier>{db8c8cfc-adbf-4dad-8bea-215ba6e2e576}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\OpenGLHook\Minhook">
+      <UniqueIdentifier>{55dcfe9b-4949-4140-9a26-7816f86ff4a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\OpenGLHook\Minhook\include">
+      <UniqueIdentifier>{203047c1-754e-493e-b98e-ea65b837d3b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\OpenGLHook\Minhook\src">
+      <UniqueIdentifier>{35deef8b-89a8-4188-9162-cc238ef1f311}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\OpenGLHook\Minhook\src\hde">
+      <UniqueIdentifier>{c2b716fa-7b88-4728-b00e-16a7b2e9860f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Modules">
+      <UniqueIdentifier>{7bc99bc0-0d84-4cb9-acb1-b0a6544260b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Modules\Targeting">
+      <UniqueIdentifier>{9ff3c074-91fd-4137-9bd2-7882dc5439eb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\dllmain.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Hook\Minhook\src\buffer.c">
+      <Filter>Source\OpenGLHook\Minhook\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Hook\Minhook\src\hook.c">
+      <Filter>Source\OpenGLHook\Minhook\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Hook\Minhook\src\trampoline.c">
+      <Filter>Source\OpenGLHook\Minhook\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Hook\Minhook\src\hde\hde32.c">
+      <Filter>Source\OpenGLHook\Minhook\src\hde</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Hook\Minhook\src\hde\hde64.c">
+      <Filter>Source\OpenGLHook\Minhook\src\hde</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ImGui\imgui.cpp">
+      <Filter>Source\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ImGui\imgui_demo.cpp">
+      <Filter>Source\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ImGui\imgui_draw.cpp">
+      <Filter>Source\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ImGui\imgui_impl_opengl3.cpp">
+      <Filter>Source\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ImGui\imgui_impl_win32.cpp">
+      <Filter>Source\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ImGui\imgui_tables.cpp">
+      <Filter>Source\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ImGui\imgui_widgets.cpp">
+      <Filter>Source\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\functions\functions.cpp">
+      <Filter>Source\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>Source\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Snippets.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="hooks.cpp">
+      <Filter>Source\Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="targeting.cpp">
+      <Filter>Source\Modules\Targeting</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Hook\Minhook\include\MinHook.h">
+      <Filter>Source\OpenGLHook\Minhook\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Hook\Minhook\src\buffer.h">
+      <Filter>Source\OpenGLHook\Minhook\src</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Hook\Minhook\src\trampoline.h">
+      <Filter>Source\OpenGLHook\Minhook\src</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Hook\Minhook\src\hde\hde32.h">
+      <Filter>Source\OpenGLHook\Minhook\src\hde</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Hook\Minhook\src\hde\hde64.h">
+      <Filter>Source\OpenGLHook\Minhook\src\hde</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Hook\Minhook\src\hde\pstdint.h">
+      <Filter>Source\OpenGLHook\Minhook\src\hde</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Hook\Minhook\src\hde\table32.h">
+      <Filter>Source\OpenGLHook\Minhook\src\hde</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Hook\Minhook\src\hde\table64.h">
+      <Filter>Source\OpenGLHook\Minhook\src\hde</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ImGui\imconfig.h">
+      <Filter>Source\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ImGui\imgui.h">
+      <Filter>Source\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ImGui\imgui_impl_opengl3.h">
+      <Filter>Source\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ImGui\imgui_impl_win32.h">
+      <Filter>Source\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ImGui\imgui_internal.h">
+      <Filter>Source\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ImGui\imstb_rectpack.h">
+      <Filter>Source\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ImGui\imstb_textedit.h">
+      <Filter>Source\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ImGui\imstb_truetype.h">
+      <Filter>Source\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\functions\functions.h">
+      <Filter>Source\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="Constants.h">
+      <Filter>Source\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Declarations.h">
+      <Filter>Source\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Includes.h">
+      <Filter>Source\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Offsets.h">
+      <Filter>Source\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utils.h">
+      <Filter>Source\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="hooks.h">
+      <Filter>Source\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="targeting.h">
+      <Filter>Source\Modules\Targeting</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,52 @@
+﻿  dllmain.cpp
+  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_impl_opengl3.cpp
+  imgui_impl_win32.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  Kod Üretiliyor...
+  buffer.c
+  hde32.c
+  hde64.c
+  hook.c
+  trampoline.c
+  Kod Üretiliyor...
+LINK : warning LNK4098: defaultlib 'LIBCMT' diğer kitaplıkların kullanımı ile çakışıyor; /NODEFAULTLIB:library kullanın
+LINK : warning LNK4217: '___glewActiveTexture' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"void __cdecl ImGui_ImplOpenGL3_RenderDrawData(struct ImDrawData *)" (?ImGui_ImplOpenGL3_RenderDrawData@@YAXPAUImDrawData@@@Z)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewBlendEquation' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"void __cdecl ImGui_ImplOpenGL3_SetupRenderState(struct ImDrawData *,int,int,unsigned int)" (?ImGui_ImplOpenGL3_SetupRenderState@@YAXPAUImDrawData@@HHI@Z)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewBlendFuncSeparate' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"void __cdecl ImGui_ImplOpenGL3_RenderDrawData(struct ImDrawData *)" (?ImGui_ImplOpenGL3_RenderDrawData@@YAXPAUImDrawData@@@Z)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewBindBuffer' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"bool __cdecl ImGui_ImplOpenGL3_CreateDeviceObjects(void)" (?ImGui_ImplOpenGL3_CreateDeviceObjects@@YA_NXZ)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewBufferData' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"void __cdecl ImGui_ImplOpenGL3_RenderDrawData(struct ImDrawData *)" (?ImGui_ImplOpenGL3_RenderDrawData@@YAXPAUImDrawData@@@Z)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewDeleteBuffers' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"void __cdecl ImGui_ImplOpenGL3_DestroyDeviceObjects(void)" (?ImGui_ImplOpenGL3_DestroyDeviceObjects@@YAXXZ)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewGenBuffers' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"bool __cdecl ImGui_ImplOpenGL3_CreateDeviceObjects(void)" (?ImGui_ImplOpenGL3_CreateDeviceObjects@@YA_NXZ)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewAttachShader' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"bool __cdecl ImGui_ImplOpenGL3_CreateDeviceObjects(void)" (?ImGui_ImplOpenGL3_CreateDeviceObjects@@YA_NXZ)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewBlendEquationSeparate' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"void __cdecl ImGui_ImplOpenGL3_RenderDrawData(struct ImDrawData *)" (?ImGui_ImplOpenGL3_RenderDrawData@@YAXPAUImDrawData@@@Z)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewCompileShader' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"bool __cdecl ImGui_ImplOpenGL3_CreateDeviceObjects(void)" (?ImGui_ImplOpenGL3_CreateDeviceObjects@@YA_NXZ)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewCreateProgram' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"bool __cdecl ImGui_ImplOpenGL3_CreateDeviceObjects(void)" (?ImGui_ImplOpenGL3_CreateDeviceObjects@@YA_NXZ)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewCreateShader' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"bool __cdecl ImGui_ImplOpenGL3_CreateDeviceObjects(void)" (?ImGui_ImplOpenGL3_CreateDeviceObjects@@YA_NXZ)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewDeleteProgram' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"void __cdecl ImGui_ImplOpenGL3_DestroyDeviceObjects(void)" (?ImGui_ImplOpenGL3_DestroyDeviceObjects@@YAXXZ)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewDeleteShader' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"bool __cdecl ImGui_ImplOpenGL3_CreateDeviceObjects(void)" (?ImGui_ImplOpenGL3_CreateDeviceObjects@@YA_NXZ)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewDetachShader' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"bool __cdecl ImGui_ImplOpenGL3_CreateDeviceObjects(void)" (?ImGui_ImplOpenGL3_CreateDeviceObjects@@YA_NXZ)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewEnableVertexAttribArray' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"void __cdecl ImGui_ImplOpenGL3_SetupRenderState(struct ImDrawData *,int,int,unsigned int)" (?ImGui_ImplOpenGL3_SetupRenderState@@YAXPAUImDrawData@@HHI@Z)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewGetAttribLocation' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"bool __cdecl ImGui_ImplOpenGL3_CreateDeviceObjects(void)" (?ImGui_ImplOpenGL3_CreateDeviceObjects@@YA_NXZ)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewGetProgramInfoLog' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"bool __cdecl CheckProgram(unsigned int,char const *)" (?CheckProgram@@YA_NIPBD@Z)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewGetProgramiv' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"bool __cdecl CheckProgram(unsigned int,char const *)" (?CheckProgram@@YA_NIPBD@Z)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewGetShaderInfoLog' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"bool __cdecl CheckShader(unsigned int,char const *)" (?CheckShader@@YA_NIPBD@Z)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewGetShaderiv' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"bool __cdecl CheckShader(unsigned int,char const *)" (?CheckShader@@YA_NIPBD@Z)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewGetUniformLocation' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"bool __cdecl ImGui_ImplOpenGL3_CreateDeviceObjects(void)" (?ImGui_ImplOpenGL3_CreateDeviceObjects@@YA_NXZ)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewLinkProgram' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"bool __cdecl ImGui_ImplOpenGL3_CreateDeviceObjects(void)" (?ImGui_ImplOpenGL3_CreateDeviceObjects@@YA_NXZ)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewShaderSource' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"bool __cdecl ImGui_ImplOpenGL3_CreateDeviceObjects(void)" (?ImGui_ImplOpenGL3_CreateDeviceObjects@@YA_NXZ)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewUniform1i' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"void __cdecl ImGui_ImplOpenGL3_SetupRenderState(struct ImDrawData *,int,int,unsigned int)" (?ImGui_ImplOpenGL3_SetupRenderState@@YAXPAUImDrawData@@HHI@Z)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewUniformMatrix4fv' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"void __cdecl ImGui_ImplOpenGL3_SetupRenderState(struct ImDrawData *,int,int,unsigned int)" (?ImGui_ImplOpenGL3_SetupRenderState@@YAXPAUImDrawData@@HHI@Z)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewUseProgram' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"void __cdecl ImGui_ImplOpenGL3_RenderDrawData(struct ImDrawData *)" (?ImGui_ImplOpenGL3_RenderDrawData@@YAXPAUImDrawData@@@Z)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewVertexAttribPointer' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"void __cdecl ImGui_ImplOpenGL3_SetupRenderState(struct ImDrawData *,int,int,unsigned int)" (?ImGui_ImplOpenGL3_SetupRenderState@@YAXPAUImDrawData@@HHI@Z)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewGetStringi' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"bool __cdecl ImGui_ImplOpenGL3_Init(char const *)" (?ImGui_ImplOpenGL3_Init@@YA_NPBD@Z)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewDrawElementsBaseVertex' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"void __cdecl ImGui_ImplOpenGL3_RenderDrawData(struct ImDrawData *)" (?ImGui_ImplOpenGL3_RenderDrawData@@YAXPAUImDrawData@@@Z)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewBindSampler' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"void __cdecl ImGui_ImplOpenGL3_RenderDrawData(struct ImDrawData *)" (?ImGui_ImplOpenGL3_RenderDrawData@@YAXPAUImDrawData@@@Z)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewBindVertexArray' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"bool __cdecl ImGui_ImplOpenGL3_CreateDeviceObjects(void)" (?ImGui_ImplOpenGL3_CreateDeviceObjects@@YA_NXZ)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewDeleteVertexArrays' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"void __cdecl ImGui_ImplOpenGL3_RenderDrawData(struct ImDrawData *)" (?ImGui_ImplOpenGL3_RenderDrawData@@YAXPAUImDrawData@@@Z)' işlevinde içeri aktarıldı
+LINK : warning LNK4217: '___glewGenVertexArrays' sembolü ('glew32s.lib(glew.obj)' içinde tanımlanan), 'imgui_impl_opengl3.obj' tarafından '"void __cdecl ImGui_ImplOpenGL3_RenderDrawData(struct ImDrawData *)" (?ImGui_ImplOpenGL3_RenderDrawData@@YAXPAUImDrawData@@@Z)' işlevinde içeri aktarıldı
+glew32s.lib(glew.obj) : warning LNK4099: PDB '', 'glew32s.lib(glew.obj)' ile veya '' üzerinde bulunamadı; nesne, hata ayıklama bilgileri yokmuş gibi bağlanıyor
+  OpenGLTemplate.vcxproj -> C:\Users\furka\source\repos\OpenGLTemplate\Debug\OpenGLTemplate.dll
