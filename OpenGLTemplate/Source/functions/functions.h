@@ -77,6 +77,9 @@ extern _turn turn;
 // BattleListHook
 typedef DWORD(__thiscall* _BattleListHook)(DWORD battleList, DWORD localplayer);
 extern _BattleListHook BattleListHook;
+// canPerformGameAction
+typedef bool(__thiscall* _canPerformGameAction)(DWORD dwThis);
+extern _canPerformGameAction canPerformGameAction;
 
 extern uintptr_t map;
 extern uintptr_t protocolGame;

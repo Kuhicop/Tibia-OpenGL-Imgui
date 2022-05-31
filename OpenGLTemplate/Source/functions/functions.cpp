@@ -29,6 +29,7 @@ _isMonster isMonster;
 _getCreatureById getCreatureById;
 _turn turn;
 _BattleListHook BattleListHook;
+_canPerformGameAction canPerformGameAction;
 
 void InitFunctions(){
 	// get base address
@@ -57,6 +58,7 @@ void InitFunctions(){
 	getCreatureById = (_getCreatureById)(moduleBase + 0x142680);
 	turn = (_turn)(moduleBase + 0x770D0);
 	BattleListHook = (_BattleListHook)(moduleBase + 0x600E0);
+	canPerformGameAction = (_canPerformGameAction)(moduleBase + 0x7E030);
 
 	map = (uintptr_t)((moduleBase + dwMap));
 	protocolGame = (uintptr_t)((moduleBase + m_protocolGame));

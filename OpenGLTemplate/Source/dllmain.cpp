@@ -15,20 +15,25 @@ int health, healthmax, mana, manamax, light, playerX, playerY, playerZ;
 void HackLoop() {
     #pragma region InitHackLoop
     if (stopped) return;
-    //WriteLine("Running hackloop");
+    WriteLine("Setting now time");
     std::chrono::steady_clock::time_point end_eatfood = std::chrono::steady_clock::now();
     #pragma endregion
     
     #pragma region LocalPlayer
+    WriteLine("Setting LocalPlayer");
     LocalPlayerPointer = (DWORD)((moduleBase + dwLocalPlayer));
+    WriteLine(("LocalPlayerPointer: " + DwordToHex(LocalPlayerPointer)));
     LocalPlayerAddress = *(DWORD*)LocalPlayerPointer;
+    WriteLine(("LocalPlayerAddress: " + DwordToHex(LocalPlayerAddress)));
     if (LocalPlayerAddress == 0) return;
     #pragma endregion
 
     #pragma region Lighthack
+    WriteLine("Writting light");
     *(DWORD*)(LocalPlayerAddress + offset_light) = 2263;
     if (!botloaded) {        
         // nop light
+        WriteLine("Nopping light");
         Nop((BYTE*)(moduleBase + dwLightNopFirstAddress), (dwLightBytesToNop * 2)); // we're nopping 2 opcodes at once (12 bytes)
         Nop((BYTE*)(moduleBase + dwLightNopSecondAddress), dwLightBytesToNop); // every opcode is 6 bytes
         Nop((BYTE*)(moduleBase + dwLightNopThirdAddress), dwLightBytesToNop);
@@ -37,49 +42,65 @@ void HackLoop() {
     #pragma endregion
     
     #pragma region Stats
+    WriteLine("Reading stats");
     health = (int)getHealth(LocalPlayerAddress);
+    WriteLine(("health: " + std::to_string(health)));
     if (health == 0) return;
     healthmax = (int)getHealthMax(LocalPlayerAddress);
+    WriteLine(("healthmax: " + std::to_string(healthmax)));
     mana = (int)getMana(LocalPlayerAddress);
+    WriteLine(("mana: " + std::to_string(mana)));
     manamax = (int)getManaMax(LocalPlayerAddress);
+    WriteLine(("manamax: " + std::to_string(manamax)));
     playerX = *(int*)(LocalPlayerAddress + offset_playerX);
+    WriteLine(("playerX: " + std::to_string(playerX)));
     playerY = *(int*)(LocalPlayerAddress + offset_playerY);
+    WriteLine(("playerY: " + std::to_string(playerY)));
     playerZ = *(int*)(LocalPlayerAddress + offset_playerZ);
+    WriteLine(("playerZ: " + std::to_string(playerZ)));
     #pragma endregion
     
     #pragma region Autoheal
+    WriteLine("Reading autoheal");
     if (enabled_auto_heal) {
-        if (health > 0 && health <= health_to_heal && health_to_heal != 0 && mana >= mana_to_cast_heal) {
+        WriteLine("Checking autoheal");
+        if (health > 0 && health <= health_to_cast_autoheal && health_to_cast_autoheal != 0 && mana >= mana_to_cast_autoheal) {
+            WriteLine("Casting autoheal");
             talkChannel(LocalPlayerPointer, 1, 0, SPELL_TO_AUTOHEAL);
         }
     }
     #pragma endregion
 
     #pragma region Manatrain
-    if (enabled_mana_trainer) {        
-        if (mana >= mana_to_cast && mana_to_cast != 0) {
-            talkChannel(LocalPlayerPointer, 1, 0, SPELL_TO_MANATRAIN);                        
+    WriteLine("Reading manatrain");
+    if (enabled_mana_trainer) {   
+        WriteLine("Checking manatrain");
+        if (mana >= mana_to_cast_manatrain && mana_to_cast_manatrain != 0) {
+            WriteLine("Casting manatrain");
+            if (canPerformGameAction(LocalPlayerPointer))
+                talkChannel(LocalPlayerPointer, 1, 0, SPELL_TO_MANATRAIN);                        
         }
     }
     #pragma endregion
 
     #pragma region Eatfood
+    WriteLine("Reading eatfood");
     if (enabled_eat_food) {
+        WriteLine("Checking eatfood");
         if (seconds_to_eat != 0 && std::chrono::duration_cast<std::chrono::seconds>(end_eatfood - begin_eatfood).count() >= seconds_to_eat) {
             // useItem
             DWORD buffer = 0;
+            WriteLine("Getting inventory item");
             getInventoryItem(LocalPlayerAddress, &buffer, Const::InventorySlot::InventorySlotAmmo);
-            if (buffer != 0) {                
-                useItem(LocalPlayerPointer, &buffer);
-                try {
-                    begin_eatfood = std::chrono::steady_clock::now();
-                }
-                catch (...) {                    
-                    WriteLine("Eatfood exception");
-                }                
+            WriteLine("Getting buffer");
+            if (buffer != 0) {       
+                WriteLine("Using item to buffer: " + DwordToHex(buffer));
+                if (canPerformGameAction(LocalPlayerPointer))
+                    useItem(LocalPlayerPointer, &buffer);
+                WriteLine("Setting new time for eatfood");
+                begin_eatfood = std::chrono::steady_clock::now();             
             }
         }
-        
     }
     #pragma endregion  
 }
@@ -137,9 +158,16 @@ BOOL __stdcall hkSwapBuffers(_In_ HDC hDc)
         }
         ImGui::Separator();
 
+        if (ImGui::CollapsingHeader("Healing")) {
+            ImGui::Checkbox("Auto heal", &enabled_auto_heal);
+            ImGui::SliderInt("Mana to cast", &mana_to_cast_autoheal, 0, manamax);
+            ImGui::SliderInt("Health to cast", &health_to_cast_autoheal, 0, healthmax);
+        }
+        ImGui::Separator();
+
         if (ImGui::CollapsingHeader("Runemaker")) {
             ImGui::Checkbox("Mana trainer", &enabled_mana_trainer);
-            ImGui::SliderInt("Mana to cast", &mana_to_cast, 0, manamax);
+            ImGui::SliderInt("Mana to cast", &mana_to_cast_manatrain, 0, manamax);
             ImGui::Checkbox("Eat food", &enabled_eat_food);
             ImGui::SliderInt("Eat interval", &seconds_to_eat, 30, 300);
             ImGui::Text("Eating will use arrow slot food.");
