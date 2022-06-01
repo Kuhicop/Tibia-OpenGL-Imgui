@@ -1,10 +1,10 @@
-#Based on:# 
+# Based on:
 
 OpenGL3 Internal Hook with ImGui Impl. (using minhook for detours x64/x86)
 
 https://github.com/Lufzys/OpenGL-Internal-Template
 
-#As of right now, the bot looks like this:#
+# As of right now, the bot looks like this:
 
 ![Bot image](https://github.com/Kuhicop/Tibia-OpenGL-Imgui/blob/main/screenshot.png?raw=true)
 
@@ -13,4 +13,4 @@ Everything is working. But the program is crashing after X minutes (sometimes la
 I'm trying to find a fix for that but right now I'm far from fixing it as I have no idea of what I could do with it.
 
 
-#This is only for learning purposes.#
+# This is only for learning purposes.
