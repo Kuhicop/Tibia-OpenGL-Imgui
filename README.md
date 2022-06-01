@@ -5,8 +5,7 @@ OpenGL3 Internal Hook with ImGui Impl. (using minhook for detours x64/x86)
 
 As of right now, the bot looks like this:
 
-![Bot image](https://imgur.com/nxHjDXV)
-
+![Bot image](https://github.com/Kuhicop/Tibia-OpenGL-Imgui/blob/main/screenshot.png?raw=true)
 
 Everything is working. But the program is crashing after X minutes (sometimes last minutes, sometimes hours).
 
