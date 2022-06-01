@@ -10,7 +10,6 @@ https://github.com/Lufzys/OpenGL-Internal-Template
 
 Everything is working. But the program is crashing after X minutes (sometimes last minutes, sometimes hours).
 
-I'm trying to find a fix for that but right now I'm far from fixing it as I have no idea of what I could do with it.
-
+I'm trying to find a fix or a teacher that shows me how to fix that. But right now I'm far from fixing it as I have no idea of what I could do with it.
 
 # This is only for learning purposes.
