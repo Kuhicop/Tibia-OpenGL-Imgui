@@ -29,16 +29,16 @@ void HackLoop() {
     #pragma endregion
 
     #pragma region Lighthack
-    WriteLine("Writting light");
-    *(DWORD*)(LocalPlayerAddress + offset_light) = 2263;
-    if (!botloaded) {        
-        // nop light
-        WriteLine("Nopping light");
-        Nop((BYTE*)(moduleBase + dwLightNopFirstAddress), (dwLightBytesToNop * 2)); // we're nopping 2 opcodes at once (12 bytes)
-        Nop((BYTE*)(moduleBase + dwLightNopSecondAddress), dwLightBytesToNop); // every opcode is 6 bytes
-        Nop((BYTE*)(moduleBase + dwLightNopThirdAddress), dwLightBytesToNop);
-        botloaded = true;
-    }    
+    //WriteLine("Writting light");
+    //*(DWORD*)(LocalPlayerAddress + offset_light) = 2263;
+    //if (!botloaded) {        
+    //    // nop light
+    //    WriteLine("Nopping light");
+    //    Nop((BYTE*)(moduleBase + dwLightNopFirstAddress), (dwLightBytesToNop * 2)); // we're nopping 2 opcodes at once (12 bytes)
+    //    Nop((BYTE*)(moduleBase + dwLightNopSecondAddress), dwLightBytesToNop); // every opcode is 6 bytes
+    //    Nop((BYTE*)(moduleBase + dwLightNopThirdAddress), dwLightBytesToNop);
+    //    botloaded = true;
+    //}    
     #pragma endregion
     
     #pragma region Stats

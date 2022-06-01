@@ -10,7 +10,7 @@ static int health_to_cast_autoheal = 150;
 static int mana_to_cast_autoheal = 25;
 static int seconds_to_eat = 30;
 const std::string SPELL_TO_MANATRAIN = "adevo mas hur";
-const std::string SPELL_TO_AUTOHEAL = "exura vita";
+const std::string SPELL_TO_AUTOHEAL = "exura";
 const uintptr_t rune_to_shoot = 3198; //hmm
 
 static bool enabled_eat_food, enabled_mana_trainer, enabled_auto_heal = false;
