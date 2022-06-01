@@ -4,7 +4,8 @@ OpenGL3 Internal Hook with ImGui Impl. (using minhook for detours x64/x86)
 
 
 As of right now, the bot looks like this:
-![Bot image](https://prnt.sc/6qN0McQDF639)
+
+![Bot image](https://imgur.com/nxHjDXV)
 
 
 Everything is working. But the program is crashing after X minutes (sometimes last minutes, sometimes hours).
