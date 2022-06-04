@@ -12,6 +12,8 @@ Everything is working. ~~But the program is crashing after X minutes (sometimes 
 
 ~~I'm trying to find a fix or a teacher that shows me how to fix that. But right now I'm far from fixing it as I have no idea of what I could do with it.~~
 
-Confirmed, not crashing anymore... Hooked to a game function the bot process and gg
+Confirmed, not crashing anymore... Hooked to a game function the bot process and gg!
 
 # This is only for learning purposes.
+
+Big thanks to Huge Bollocks (specially Edvin, Josh and Martin), tibiapf, guidedhacking and unknowncheats.
