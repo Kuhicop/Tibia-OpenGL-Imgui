@@ -8,9 +8,9 @@ https://github.com/Lufzys/OpenGL-Internal-Template
 
 ![Bot image](https://github.com/Kuhicop/Tibia-OpenGL-Imgui/blob/main/screenshot.png?raw=true)
 
-Everything is working. ~~But the program is crashing after X minutes (sometimes last minutes, sometimes hours).
+Everything is working. ~~But the program is crashing after X minutes (sometimes last minutes, sometimes hours).~~
 
-~~I'm trying to find a fix or a teacher that shows me how to fix that. But right now I'm far from fixing it as I have no idea of what I could do with it.
+~~I'm trying to find a fix or a teacher that shows me how to fix that. But right now I'm far from fixing it as I have no idea of what I could do with it.~~
 
 Confirmed, not crashing anymore... Hooked to a game function the bot process and gg
 
