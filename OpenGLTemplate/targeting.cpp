@@ -21,15 +21,20 @@ void Targeting() {
 
     DWORD attacking = isAttacking(LocalPlayerPointer);
     if (attacking == 0) {
-        WriteLine("Calling attack with battle_list: " + DwordToHex(battle_list));
+        //WriteLine("Calling attack with battle_list: " + DwordToHex(battle_list));
         //attack(LocalPlayerPointer, battle_list, 256);
         return;
     }
     else {     
-        DWORD item = 0;        
-        findItemInContainers(LocalPlayerPointer, &item, rune_to_shoot, 1);
-        if (item != 0) {
-            useWith(LocalPlayerPointer, (DWORD)&item, (DWORD)&battle_list);
+        if (health <= health_to_cast_autoheal) return;
+        int seconds = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::steady_clock::now() - start_targeting).count();
+        if (seconds_to_cast != 0 && seconds >= seconds_to_cast) {
+            DWORD item = 0;
+            findItemInContainers(LocalPlayerPointer, &item, rune_to_shoot, 1);
+            if (item != 0) {
+                useWith(LocalPlayerPointer, (DWORD)&item, (DWORD)&battle_list);
+                start_targeting = start_targeting + std::chrono::seconds(2);
+            }
         }
     }
 }

@@ -10,6 +10,7 @@
 #include "ImGui/imgui.h"
 #include "ImGui/imgui_impl_opengl3.h"
 #include "ImGui/imgui_impl_win32.h"
+#include "ImGui/imgui_stdlib.h"
 #include "functions/functions.h"
 #include "../Declarations.h"
 #include "../Constants.h"
@@ -18,6 +19,7 @@
 #include <sstream>
 #include "../hooks.h"
 #include "../targeting.h"
+#include "../dllmain.h"
 
 #pragma region OpenGL
 #ifdef _WIN64

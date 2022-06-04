@@ -2,9 +2,12 @@
 #include "../Includes.h"
 
 void InitFunctions();
-
 extern uintptr_t moduleBase;
+extern uintptr_t map;
+extern uintptr_t protocolGame;
+extern DWORD protocolGamePointer;
 
+#pragma region Functions
 // getMana
 typedef double(__thiscall* _getMana)(DWORD localplayer);
 extern _getMana getMana;
@@ -42,7 +45,7 @@ extern _getAttackingCreature getAttackingCreature;
 typedef void(__thiscall* _useItem)(DWORD localplayer, DWORD* item);
 extern _useItem useItem;
 // getTile
-typedef TilePtr&(__thiscall* _getTile)(DWORD map, DWORD tile_pos);
+typedef TilePtr& (__thiscall* _getTile)(DWORD map, DWORD tile_pos);
 extern _getTile getTile;
 // get tiles
 typedef void(__thiscall* _getTiles)(DWORD map, TileList* buffer, uintptr_t floor);
@@ -74,13 +77,19 @@ extern _getCreatureById getCreatureById;
 // turn
 typedef void(__thiscall* _turn)(DWORD player, int direction);
 extern _turn turn;
-// BattleListHook
-typedef DWORD(__thiscall* _BattleListHook)(DWORD battleList, DWORD localplayer);
-extern _BattleListHook BattleListHook;
 // canPerformGameAction
 typedef bool(__thiscall* _canPerformGameAction)(DWORD dwThis);
 extern _canPerformGameAction canPerformGameAction;
+// getSpectatorsInRangeEx
+typedef std::vector<DWORD*>(__thiscall* _getSpectatorsInRangeEx)(DWORD dwThis, std::vector<int>* a2, std::vector<int> a3, DWORD a4, DWORD a5, DWORD a6);
+extern _getSpectatorsInRangeEx getSpectatorsInRangeEx;
+#pragma endregion
 
-extern uintptr_t map;
-extern uintptr_t protocolGame;
-extern DWORD protocolGamePointer;
+#pragma region Hooks
+// BattleListHook
+typedef DWORD(__thiscall* _BattleListHook)(DWORD* pthis, DWORD battleList);
+extern _BattleListHook BattleListHook;
+// CheckPlayer
+typedef DWORD(__thiscall* _CheckPlayerHook)(DWORD* player, DWORD lparam, DWORD rparam);
+extern _CheckPlayerHook CheckPlayerHook;
+#pragma endregion

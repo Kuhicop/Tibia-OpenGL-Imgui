@@ -96,6 +96,9 @@
     <ClCompile Include="targeting.cpp">
       <Filter>Source\Modules\Targeting</Filter>
     </ClCompile>
+    <ClCompile Include="Source\ImGui\imgui_stdlib.cpp">
+      <Filter>Source\ImGui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Hook\Minhook\include\MinHook.h">
@@ -169,6 +172,12 @@
     </ClInclude>
     <ClInclude Include="targeting.h">
       <Filter>Source\Modules\Targeting</Filter>
+    </ClInclude>
+    <ClInclude Include="dllmain.h">
+      <Filter>Source\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ImGui\imgui_stdlib.h">
+      <Filter>Source\ImGui</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

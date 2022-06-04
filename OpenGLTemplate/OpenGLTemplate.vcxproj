@@ -33,6 +33,7 @@
     <ClCompile Include="Source\ImGui\imgui_draw.cpp" />
     <ClCompile Include="Source\ImGui\imgui_impl_opengl3.cpp" />
     <ClCompile Include="Source\ImGui\imgui_impl_win32.cpp" />
+    <ClCompile Include="Source\ImGui\imgui_stdlib.cpp" />
     <ClCompile Include="Source\ImGui\imgui_tables.cpp" />
     <ClCompile Include="Source\ImGui\imgui_widgets.cpp" />
     <ClCompile Include="targeting.cpp" />
@@ -41,6 +42,7 @@
   <ItemGroup>
     <ClInclude Include="Constants.h" />
     <ClInclude Include="Declarations.h" />
+    <ClInclude Include="dllmain.h" />
     <ClInclude Include="hooks.h" />
     <ClInclude Include="Offsets.h" />
     <ClInclude Include="Source\functions\functions.h" />
@@ -57,6 +59,7 @@
     <ClInclude Include="Source\ImGui\imgui_impl_opengl3.h" />
     <ClInclude Include="Source\ImGui\imgui_impl_win32.h" />
     <ClInclude Include="Source\ImGui\imgui_internal.h" />
+    <ClInclude Include="Source\ImGui\imgui_stdlib.h" />
     <ClInclude Include="Source\ImGui\imstb_rectpack.h" />
     <ClInclude Include="Source\ImGui\imstb_textedit.h" />
     <ClInclude Include="Source\ImGui\imstb_truetype.h" />

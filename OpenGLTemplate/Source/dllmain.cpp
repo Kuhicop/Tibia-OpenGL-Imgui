@@ -10,6 +10,8 @@ bool show, botloaded, stopped = false;
 std::chrono::steady_clock::time_point begin_eatfood = std::chrono::steady_clock::now();
 DWORD LocalPlayerPointer, LocalPlayerAddress;
 int health, healthmax, mana, manamax, light, playerX, playerY, playerZ;
+std::string SPELL_TO_MANATRAIN = "adevo mas hur";
+std::string SPELL_TO_AUTOHEAL = "exura";
 #pragma endregion
 
 void HackLoop() {
@@ -29,16 +31,16 @@ void HackLoop() {
     #pragma endregion
 
     #pragma region Lighthack
-    //WriteLine("Writting light");
-    //*(DWORD*)(LocalPlayerAddress + offset_light) = 2263;
-    //if (!botloaded) {        
-    //    // nop light
-    //    WriteLine("Nopping light");
-    //    Nop((BYTE*)(moduleBase + dwLightNopFirstAddress), (dwLightBytesToNop * 2)); // we're nopping 2 opcodes at once (12 bytes)
-    //    Nop((BYTE*)(moduleBase + dwLightNopSecondAddress), dwLightBytesToNop); // every opcode is 6 bytes
-    //    Nop((BYTE*)(moduleBase + dwLightNopThirdAddress), dwLightBytesToNop);
-    //    botloaded = true;
-    //}    
+    WriteLine("Writting light");
+    *(DWORD*)(LocalPlayerAddress + offset_light) = 2263;
+    if (!botloaded) {        
+        // nop light
+        WriteLine("Nopping light");
+        Nop((BYTE*)(moduleBase + dwLightNopFirstAddress), (dwLightBytesToNop * 2)); // we're nopping 2 opcodes at once (12 bytes)
+        Nop((BYTE*)(moduleBase + dwLightNopSecondAddress), dwLightBytesToNop); // every opcode is 6 bytes
+        Nop((BYTE*)(moduleBase + dwLightNopThirdAddress), dwLightBytesToNop);
+        botloaded = true;
+    }    
     #pragma endregion
     
     #pragma region Stats
@@ -102,7 +104,10 @@ void HackLoop() {
             }
         }
     }
-    #pragma endregion  
+    #pragma endregion
+
+    //std::vector<int> pos = {1022, 1022, 7};
+    //std::vector<DWORD*> spectators = getSpectatorsInRangeEx(LocalPlayerPointer, &pos, pos, 0, 7, 8);
 }
 
 #pragma region hkSwapBuffers
@@ -123,16 +128,14 @@ BOOL __stdcall hkSwapBuffers(_In_ HDC hDc)
         }
     }
 
-    HackLoop();
-
     if (GetAsyncKeyState(VK_INSERT) & 1)
         show = !show;
 
-    if (GetAsyncKeyState(VK_END) & 1) // Unload
-    {
-        MH_DisableHook(MH_ALL_HOOKS);
-        SetWindowLongPtr(Window, GWL_WNDPROC, (LONG_PTR)oWndProc); // Reset WndProc
-    }
+    //if (GetAsyncKeyState(VK_END) & 1) // Unload
+    //{
+    //    MH_DisableHook(MH_ALL_HOOKS);
+    //    SetWindowLongPtr(Window, GWL_WNDPROC, (LONG_PTR)oWndProc); // Reset WndProc
+    //}
 
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplWin32_NewFrame();
@@ -158,19 +161,21 @@ BOOL __stdcall hkSwapBuffers(_In_ HDC hDc)
         }
         ImGui::Separator();
 
-        if (ImGui::CollapsingHeader("Healing")) {
-            ImGui::Checkbox("Auto heal", &enabled_auto_heal);
-            ImGui::SliderInt("Mana to cast", &mana_to_cast_autoheal, 0, manamax);
-            ImGui::SliderInt("Health to cast", &health_to_cast_autoheal, 0, healthmax);
+        if (ImGui::CollapsingHeader("Healing")) {            
+            ImGui::Checkbox("Enabled##Healing", &enabled_auto_heal);            
+            ImGui::SliderInt("Health##Healing", &health_to_cast_autoheal, 0, healthmax);
+            ImGui::InputText("Spell##Healing", &SPELL_TO_AUTOHEAL);
+            ImGui::SliderInt("Mana##Healing", &mana_to_cast_autoheal, 0, manamax);
         }
         ImGui::Separator();
 
-        if (ImGui::CollapsingHeader("Runemaker")) {
-            ImGui::Checkbox("Mana trainer", &enabled_mana_trainer);
-            ImGui::SliderInt("Mana to cast", &mana_to_cast_manatrain, 0, manamax);
+        if (ImGui::CollapsingHeader("Runemaker")) {            
+            ImGui::Checkbox("Enabled##Runemaker", &enabled_mana_trainer);
+            ImGui::InputText("Spell##Runemaker", &SPELL_TO_MANATRAIN);
+            ImGui::SliderInt("Mana##Runemaker", &mana_to_cast_manatrain, 0, manamax);
             ImGui::Checkbox("Eat food", &enabled_eat_food);
-            ImGui::SliderInt("Eat interval", &seconds_to_eat, 30, 300);
-            ImGui::Text("Eating will use arrow slot food.");
+            ImGui::SliderInt("Eat delay", &seconds_to_eat, 30, 300);
+            ImGui::Text("Eating will use arrow slot MEATS.");
         }
 
         ImGui::End();
@@ -186,7 +191,6 @@ BOOL __stdcall hkSwapBuffers(_In_ HDC hDc)
 
 #pragma region WndProc
 LRESULT __stdcall WndProc(const HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
-
     if (ImGui_ImplWin32_WndProcHandler(hWnd, uMsg, wParam, lParam))
         return true;
 
@@ -198,16 +202,7 @@ LRESULT __stdcall WndProc(const HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 DWORD WINAPI Initalization(__in  LPVOID lpParameter)
 {
     InitFunctions();
-    //InitHooks();
-
-    if (debugging) {        
-        while (!GetAsyncKeyState(VK_END)) {
-            //WriteLine("Trying to run loop");
-            HackLoop();
-            Sleep(10);
-        }
-        return false;
-    }
+    InitHooks();   
 
     while (GetModuleHandle("opengl32.dll") == NULL)  { Sleep(100); }
     Sleep(100);
@@ -222,7 +217,10 @@ DWORD WINAPI Initalization(__in  LPVOID lpParameter)
         do
             Window = GetProcessWindow();
         while (Window == NULL);
+
+        // Hook SwapBuffers
         oWndProc = (WNDPROC)SetWindowLongPtr(Window, GWL_WNDPROC, (LONG_PTR)WndProc);
+
         return true;
     }
     else
