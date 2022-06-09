@@ -87,9 +87,6 @@
     <ClCompile Include="Utils.cpp">
       <Filter>Source\Sources</Filter>
     </ClCompile>
-    <ClCompile Include="Snippets.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="hooks.cpp">
       <Filter>Source\Hooks</Filter>
     </ClCompile>
@@ -98,6 +95,9 @@
     </ClCompile>
     <ClCompile Include="Source\ImGui\imgui_stdlib.cpp">
       <Filter>Source\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Snippets.cpp">
+      <Filter>Source\Sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

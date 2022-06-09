@@ -12,7 +12,7 @@ void InitHooks() {
 
 #pragma region BattleHook
 DWORD __fastcall BattleHook(DWORD* pThis, void* ecx, DWORD battleList) {
-    WriteLine("Hooked BattleHook :D");
+    //WriteLine("Hooked BattleHook :D");
     battle_list = (DWORD)pThis;
     start_targeting = std::chrono::steady_clock::now();
     return ((_BattleListHook)BattleHookGateway)(pThis, battleList);
@@ -21,7 +21,7 @@ DWORD __fastcall BattleHook(DWORD* pThis, void* ecx, DWORD battleList) {
 
 #pragma region MainHook
 DWORD __fastcall CheckPlayer(DWORD* pThis, void* ecx, DWORD lparam, DWORD rparam) {
-    WriteLine("Hooked CheckPlayer :D");
+    //WriteLine("Hooked CheckPlayer :D");
 
     HackLoop();
     //Targeting();

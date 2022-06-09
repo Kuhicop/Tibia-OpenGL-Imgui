@@ -33,7 +33,7 @@ void Targeting() {
             findItemInContainers(LocalPlayerPointer, &item, rune_to_shoot, 1);
             if (item != 0) {
                 useWith(LocalPlayerPointer, (DWORD)&item, (DWORD)&battle_list);
-                start_targeting = start_targeting + std::chrono::seconds(2);
+                start_targeting = start_targeting + std::chrono::seconds(seconds_to_cast);
             }
         }
     }

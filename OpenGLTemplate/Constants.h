@@ -4,17 +4,18 @@
 #define CLIENT_CONST_H
 
 extern DWORD LocalPlayerPointer, LocalPlayerAddress, battle_list;
-extern std::chrono::steady_clock::time_point start_targeting;
+extern std::chrono::steady_clock::time_point start_targeting, start_autoheal;
 static int mana_to_cast_manatrain = 280;
 static int health_to_cast_autoheal = 150;
-static int mana_to_cast_autoheal = 25;
+static int mana_to_cast_autoheal = 80;
 static int seconds_to_eat = 30;
-static int seconds_to_cast = 2;
+static int seconds_to_cast = 1;
+static int mana_to_autopot = 200;
 extern std::string SPELL_TO_MANATRAIN;
 extern std::string SPELL_TO_AUTOHEAL;
 const uintptr_t rune_to_shoot = 3198; //hmm
 
-static bool enabled_eat_food, enabled_mana_trainer, enabled_auto_heal = false;
+static bool enabled_eat_food, enabled_mana_trainer, enabled_auto_heal, enabled_manapot = false;
 extern int health, healthmax, mana, manamax, light, playerX, playerY, playerZ;
 
 namespace Const

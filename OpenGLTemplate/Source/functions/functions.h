@@ -83,6 +83,9 @@ extern _canPerformGameAction canPerformGameAction;
 // getSpectatorsInRangeEx
 typedef std::vector<DWORD*>(__thiscall* _getSpectatorsInRangeEx)(DWORD dwThis, std::vector<int>* a2, std::vector<int> a3, DWORD a4, DWORD a5, DWORD a6);
 extern _getSpectatorsInRangeEx getSpectatorsInRangeEx;
+// isOnline
+typedef bool(__thiscall* _isOnline)(DWORD localPlayer);
+extern _isOnline isOnline;
 #pragma endregion
 
 #pragma region Hooks

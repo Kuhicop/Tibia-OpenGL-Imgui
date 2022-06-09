@@ -7,35 +7,35 @@ WNDPROC oWndProc;
 static HWND Window = NULL;
 int init = false;
 bool show, botloaded, stopped = false;
-std::chrono::steady_clock::time_point begin_eatfood = std::chrono::steady_clock::now();
+std::chrono::steady_clock::time_point begin_eatfood, start_autoheal, start_manapot = std::chrono::steady_clock::now();
 DWORD LocalPlayerPointer, LocalPlayerAddress;
 int health, healthmax, mana, manamax, light, playerX, playerY, playerZ;
 std::string SPELL_TO_MANATRAIN = "adevo mas hur";
-std::string SPELL_TO_AUTOHEAL = "exura";
+std::string SPELL_TO_AUTOHEAL = "exura vita";
 #pragma endregion
 
 void HackLoop() {
     #pragma region InitHackLoop
     if (stopped) return;
-    WriteLine("Setting now time");
+    //WriteLine("Setting now time");
     std::chrono::steady_clock::time_point end_eatfood = std::chrono::steady_clock::now();
     #pragma endregion
     
     #pragma region LocalPlayer
-    WriteLine("Setting LocalPlayer");
+    //WriteLine("Setting LocalPlayer");
     LocalPlayerPointer = (DWORD)((moduleBase + dwLocalPlayer));
-    WriteLine(("LocalPlayerPointer: " + DwordToHex(LocalPlayerPointer)));
+    //WriteLine(("LocalPlayerPointer: " + DwordToHex(LocalPlayerPointer)));
     LocalPlayerAddress = *(DWORD*)LocalPlayerPointer;
-    WriteLine(("LocalPlayerAddress: " + DwordToHex(LocalPlayerAddress)));
+    //WriteLine(("LocalPlayerAddress: " + DwordToHex(LocalPlayerAddress)));
     if (LocalPlayerAddress == 0) return;
     #pragma endregion
 
     #pragma region Lighthack
-    WriteLine("Writting light");
-    *(DWORD*)(LocalPlayerAddress + offset_light) = 2263;
+    //WriteLine("Writting light");
+    *(DWORD*)(LocalPlayerAddress + offset_light) = 4311;
     if (!botloaded) {        
         // nop light
-        WriteLine("Nopping light");
+        //WriteLine("Nopping light");
         Nop((BYTE*)(moduleBase + dwLightNopFirstAddress), (dwLightBytesToNop * 2)); // we're nopping 2 opcodes at once (12 bytes)
         Nop((BYTE*)(moduleBase + dwLightNopSecondAddress), dwLightBytesToNop); // every opcode is 6 bytes
         Nop((BYTE*)(moduleBase + dwLightNopThirdAddress), dwLightBytesToNop);
@@ -44,41 +44,46 @@ void HackLoop() {
     #pragma endregion
     
     #pragma region Stats
-    WriteLine("Reading stats");
+    //WriteLine("Reading stats");
     health = (int)getHealth(LocalPlayerAddress);
-    WriteLine(("health: " + std::to_string(health)));
+    //WriteLine(("health: " + std::to_string(health)));
     if (health == 0) return;
     healthmax = (int)getHealthMax(LocalPlayerAddress);
-    WriteLine(("healthmax: " + std::to_string(healthmax)));
+    //WriteLine(("healthmax: " + std::to_string(healthmax)));
     mana = (int)getMana(LocalPlayerAddress);
-    WriteLine(("mana: " + std::to_string(mana)));
+    //WriteLine(("mana: " + std::to_string(mana)));
     manamax = (int)getManaMax(LocalPlayerAddress);
-    WriteLine(("manamax: " + std::to_string(manamax)));
+    //WriteLine(("manamax: " + std::to_string(manamax)));
     playerX = *(int*)(LocalPlayerAddress + offset_playerX);
-    WriteLine(("playerX: " + std::to_string(playerX)));
+    //WriteLine(("playerX: " + std::to_string(playerX)));
     playerY = *(int*)(LocalPlayerAddress + offset_playerY);
-    WriteLine(("playerY: " + std::to_string(playerY)));
+    //WriteLine(("playerY: " + std::to_string(playerY)));
     playerZ = *(int*)(LocalPlayerAddress + offset_playerZ);
-    WriteLine(("playerZ: " + std::to_string(playerZ)));
+    //WriteLine(("playerZ: " + std::to_string(playerZ)));
     #pragma endregion
     
     #pragma region Autoheal
-    WriteLine("Reading autoheal");
+    //WriteLine("Reading autoheal");
     if (enabled_auto_heal) {
-        WriteLine("Checking autoheal");
+        //WriteLine("Checking autoheal");
         if (health > 0 && health <= health_to_cast_autoheal && health_to_cast_autoheal != 0 && mana >= mana_to_cast_autoheal) {
-            WriteLine("Casting autoheal");
-            talkChannel(LocalPlayerPointer, 1, 0, SPELL_TO_AUTOHEAL);
+            int seconds = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::steady_clock::now() - start_autoheal).count();
+            WriteLine(std::to_string(seconds) + "/" + std::to_string(seconds_to_cast));
+            if (seconds_to_cast != 0 && seconds >= seconds_to_cast) {
+                //WriteLine("Casting autoheal");
+                talkChannel(LocalPlayerPointer, 1, 0, SPELL_TO_AUTOHEAL);
+                start_autoheal = std::chrono::steady_clock::now();
+            }
         }
     }
     #pragma endregion
 
     #pragma region Manatrain
-    WriteLine("Reading manatrain");
+    //WriteLine("Reading manatrain");
     if (enabled_mana_trainer) {   
-        WriteLine("Checking manatrain");
+        //WriteLine("Checking manatrain");
         if (mana >= mana_to_cast_manatrain && mana_to_cast_manatrain != 0) {
-            WriteLine("Casting manatrain");
+            //WriteLine("Casting manatrain");
             if (canPerformGameAction(LocalPlayerPointer))
                 talkChannel(LocalPlayerPointer, 1, 0, SPELL_TO_MANATRAIN);                        
         }
@@ -86,28 +91,35 @@ void HackLoop() {
     #pragma endregion
 
     #pragma region Eatfood
-    WriteLine("Reading eatfood");
+    //WriteLine("Reading eatfood");
     if (enabled_eat_food) {
-        WriteLine("Checking eatfood");
+        //WriteLine("Checking eatfood");
         if (seconds_to_eat != 0 && std::chrono::duration_cast<std::chrono::seconds>(end_eatfood - begin_eatfood).count() >= seconds_to_eat) {
             // useItem
             DWORD buffer = 0;
-            WriteLine("Getting inventory item");
+            //WriteLine("Getting inventory item");
             getInventoryItem(LocalPlayerAddress, &buffer, Const::InventorySlot::InventorySlotAmmo);
-            WriteLine("Getting buffer");
+            //WriteLine("Getting buffer");
             if (buffer != 0) {       
-                WriteLine("Using item to buffer: " + DwordToHex(buffer));
+                //WriteLine("Using item to buffer: " + DwordToHex(buffer));
                 if (canPerformGameAction(LocalPlayerPointer))
                     useItem(LocalPlayerPointer, &buffer);
-                WriteLine("Setting new time for eatfood");
+                //WriteLine("Setting new time for eatfood");
                 begin_eatfood = std::chrono::steady_clock::now();             
             }
         }
     }
     #pragma endregion
+}
 
-    //std::vector<int> pos = {1022, 1022, 7};
-    //std::vector<DWORD*> spectators = getSpectatorsInRangeEx(LocalPlayerPointer, &pos, pos, 0, 7, 8);
+void alert() {
+    while (true) {
+        if (LocalPlayerPointer != 0)
+            if (!isOnline(LocalPlayerPointer)) {
+                Beep(523, 500);
+            }                
+        Sleep(3000);
+    }        
 }
 
 #pragma region hkSwapBuffers
@@ -166,6 +178,14 @@ BOOL __stdcall hkSwapBuffers(_In_ HDC hDc)
             ImGui::SliderInt("Health##Healing", &health_to_cast_autoheal, 0, healthmax);
             ImGui::InputText("Spell##Healing", &SPELL_TO_AUTOHEAL);
             ImGui::SliderInt("Mana##Healing", &mana_to_cast_autoheal, 0, manamax);
+
+        }
+        ImGui::Separator();
+
+        if (ImGui::CollapsingHeader("Manapots")) {
+            ImGui::Checkbox("Enabled##Manapots", &enabled_manapot);
+            ImGui::SliderInt("Mana##Manapots", &mana_to_autopot, 0, manamax);
+
         }
         ImGui::Separator();
 
@@ -192,7 +212,10 @@ BOOL __stdcall hkSwapBuffers(_In_ HDC hDc)
 #pragma region WndProc
 LRESULT __stdcall WndProc(const HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
     if (ImGui_ImplWin32_WndProcHandler(hWnd, uMsg, wParam, lParam))
-        return true;
+        return true; 
+
+    if (show)
+        return 1;
 
     return CallWindowProc(oWndProc, hWnd, uMsg, wParam, lParam);
 }
@@ -202,7 +225,7 @@ LRESULT __stdcall WndProc(const HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 DWORD WINAPI Initalization(__in  LPVOID lpParameter)
 {
     InitFunctions();
-    InitHooks();   
+    InitHooks();  
 
     while (GetModuleHandle("opengl32.dll") == NULL)  { Sleep(100); }
     Sleep(100);
@@ -234,6 +257,7 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
     switch (ul_reason_for_call)
     {
     case DLL_PROCESS_ATTACH:
+        CloseHandle(CreateThread(nullptr, 0, (LPTHREAD_START_ROUTINE)alert, hModule, 0, nullptr));
         DisableThreadLibraryCalls(hModule);
         CreateThread(0, 0, Initalization, 0, 0, 0); 
     case DLL_PROCESS_DETACH:

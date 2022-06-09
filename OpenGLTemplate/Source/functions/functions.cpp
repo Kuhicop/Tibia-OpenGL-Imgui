@@ -30,6 +30,7 @@ _getCreatureById getCreatureById;
 _turn turn;
 _canPerformGameAction canPerformGameAction;
 _getSpectatorsInRangeEx getSpectatorsInRangeEx;
+_isOnline isOnline;
 // hooks
 _BattleListHook BattleListHook;
 _CheckPlayerHook CheckPlayerHook;
@@ -62,6 +63,7 @@ void InitFunctions(){
 	turn = (_turn)(moduleBase + 0x770D0);
 	canPerformGameAction = (_canPerformGameAction)(moduleBase + 0x7E030);
 	getSpectatorsInRangeEx = (_getSpectatorsInRangeEx)(moduleBase + 0x143040);
+	isOnline = (_isOnline)(moduleBase + 0x73490);
 
 	// HOOKS:
 	BattleListHook = (_BattleListHook)(moduleBase + 0x600E0);

@@ -20,6 +20,12 @@
 #include "../hooks.h"
 #include "../targeting.h"
 #include "../dllmain.h"
+#include <thread>
+
+// sound
+#include <Mmsystem.h>
+#include <mciapi.h>
+#pragma comment(lib, "Winmm.lib")
 
 #pragma region OpenGL
 #ifdef _WIN64

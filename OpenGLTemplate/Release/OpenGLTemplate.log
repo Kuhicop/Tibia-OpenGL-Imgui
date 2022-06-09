@@ -1,9 +1,14 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(514,5): warning MSB8028: The intermediate directory (Release\) contains files shared from another project (OpenGLTemplate.vcxproj).  This can lead to incorrect clean and rebuild behavior.
 cl : command line warning D9025: overriding '/sdl' with '/GS-'
   dllmain.cpp
+C:\Users\Adrian\Documents\cracking\Tibia OpenGL Imgui\OpenGLTemplate\Source\dllmain.cpp(70,25): warning C4244: 'initializing': conversion from '_Rep' to 'int', possible loss of data
+          with
+          [
+              _Rep=__int64
+          ]
 LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
   Generating code
-  1 of 1431 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+  2 of 1425 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     18 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
