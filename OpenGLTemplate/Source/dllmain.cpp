@@ -7,7 +7,7 @@ WNDPROC oWndProc;
 static HWND Window = NULL;
 int init = false;
 bool show, botloaded, stopped = false;
-std::chrono::steady_clock::time_point begin_eatfood, start_autoheal, start_manapot = std::chrono::steady_clock::now();
+std::chrono::steady_clock::time_point begin_eatfood, start_cast, start_manapot = std::chrono::steady_clock::now();
 DWORD LocalPlayerPointer, LocalPlayerAddress;
 int health, healthmax, mana, manamax, light, playerX, playerY, playerZ;
 std::string SPELL_TO_MANATRAIN = "adevo mas hur";
@@ -67,12 +67,11 @@ void HackLoop() {
     if (enabled_auto_heal) {
         //WriteLine("Checking autoheal");
         if (health > 0 && health <= health_to_cast_autoheal && health_to_cast_autoheal != 0 && mana >= mana_to_cast_autoheal) {
-            int seconds = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::steady_clock::now() - start_autoheal).count();
-            WriteLine(std::to_string(seconds) + "/" + std::to_string(seconds_to_cast));
+            int seconds = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::steady_clock::now() - start_cast).count();
             if (seconds_to_cast != 0 && seconds >= seconds_to_cast) {
                 //WriteLine("Casting autoheal");
                 talkChannel(LocalPlayerPointer, 1, 0, SPELL_TO_AUTOHEAL);
-                start_autoheal = std::chrono::steady_clock::now();
+                start_cast = std::chrono::steady_clock::now();
             }
         }
     }
@@ -83,9 +82,14 @@ void HackLoop() {
     if (enabled_mana_trainer) {   
         //WriteLine("Checking manatrain");
         if (mana >= mana_to_cast_manatrain && mana_to_cast_manatrain != 0) {
-            //WriteLine("Casting manatrain");
-            if (canPerformGameAction(LocalPlayerPointer))
-                talkChannel(LocalPlayerPointer, 1, 0, SPELL_TO_MANATRAIN);                        
+            int seconds = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::steady_clock::now() - start_cast).count();
+            if (seconds_to_cast != 0 && seconds >= seconds_to_cast) {
+                //WriteLine("Casting manatrain");
+                if (canPerformGameAction(LocalPlayerPointer)) {
+                    talkChannel(LocalPlayerPointer, 1, 0, SPELL_TO_MANATRAIN);
+                    start_cast = std::chrono::steady_clock::now();
+                }
+            }
         }
     }
     #pragma endregion
