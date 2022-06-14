@@ -4,7 +4,7 @@
 #define CLIENT_CONST_H
 
 extern DWORD LocalPlayerPointer, LocalPlayerAddress, battle_list;
-extern std::chrono::steady_clock::time_point start_targeting, start_autoheal;
+extern std::chrono::steady_clock::time_point start_targeting, start_cast;
 static int mana_to_cast_manatrain = 280;
 static int health_to_cast_autoheal = 150;
 static int mana_to_cast_autoheal = 80;
