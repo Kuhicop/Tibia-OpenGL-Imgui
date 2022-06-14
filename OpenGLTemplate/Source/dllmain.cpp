@@ -140,7 +140,7 @@ BOOL __stdcall hkSwapBuffers(_In_ HDC hDc)
         }
     }
 
-    if (GetAsyncKeyState(VK_INSERT) & 1)
+    if ((GetAsyncKeyState(VK_INSERT) & 1) && (Window == GetFocus()))
         show = !show;
 
     //if (GetAsyncKeyState(VK_END) & 1) // Unload
