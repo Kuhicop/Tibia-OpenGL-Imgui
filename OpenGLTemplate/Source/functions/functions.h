@@ -38,33 +38,9 @@ extern _talkChannel talkChannel;
 // useWith
 typedef void(__thiscall* _useWith)(DWORD game, DWORD fromthing, DWORD tothing);
 extern _useWith useWith;
-// getAttackingCreature
-typedef DWORD(__thiscall* _getAttackingCreature)(DWORD localplayer, DWORD* buffer);
-extern _getAttackingCreature getAttackingCreature;
 // useItem    
 typedef void(__thiscall* _useItem)(DWORD localplayer, DWORD* item);
 extern _useItem useItem;
-// getTile
-typedef TilePtr& (__thiscall* _getTile)(DWORD map, DWORD tile_pos);
-extern _getTile getTile;
-// get tiles
-typedef void(__thiscall* _getTiles)(DWORD map, TileList* buffer, uintptr_t floor);
-extern _getTiles getTiles;
-// getTopCreature
-typedef DWORD(__thiscall* _getTopCreature)(DWORD tile, DWORD* buffer);
-extern _getTopCreature getTopCreature;
-// getTopThing
-typedef void(__thiscall* _getTopThing)(DWORD tile, DWORD* buffer);
-extern _getTopThing getTopThing;
-// getThingStackPos
-typedef int(__thiscall* _getThingStackPos)(DWORD thing);
-extern _getThingStackPos getThingStackPos;
-// getThings
-typedef std::vector<DWORD>(__thiscall* _getThings)(DWORD tile);
-extern _getThings getThings;
-// getId 
-typedef int(__thiscall* _getId)(DWORD thing);
-extern _getId getId;
 // attack
 typedef void(__thiscall* _attack)(DWORD localplayer, DWORD creature, int unknown);
 extern _attack attack;

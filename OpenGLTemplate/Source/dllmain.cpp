@@ -160,12 +160,12 @@ BOOL __stdcall hkSwapBuffers(_In_ HDC hDc)
         ImGui::Text("Project under development for educational purposes.");
         ImGui::Separator();
 
-        if (ImGui::CollapsingHeader("Addresses")) {
+        /*if (ImGui::CollapsingHeader("Addresses")) {
             ImGui::Text("LocalPlayerPointer: %X", LocalPlayerPointer);
             ImGui::Text("LocalPlayerAddress: %X", LocalPlayerAddress);
             ImGui::Text("Map: %X", map);
         }
-        ImGui::Separator();
+        ImGui::Separator();*/
 
         if (ImGui::CollapsingHeader("Stats")) {
             ImGui::Text("Health: %d/%d", health, healthmax);
@@ -182,12 +182,12 @@ BOOL __stdcall hkSwapBuffers(_In_ HDC hDc)
         }
         ImGui::Separator();
 
-        if (ImGui::CollapsingHeader("Manapots")) {
+        /*if (ImGui::CollapsingHeader("Manapots")) {
             ImGui::Checkbox("Enabled##Manapots", &enabled_manapot);
             ImGui::SliderInt("Mana##Manapots", &mana_to_autopot, 0, manamax);
 
         }
-        ImGui::Separator();
+        ImGui::Separator();*/
 
         if (ImGui::CollapsingHeader("Runemaker")) {            
             ImGui::Checkbox("Enabled##Runemaker", &enabled_mana_trainer);

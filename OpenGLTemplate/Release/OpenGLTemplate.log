@@ -1,16 +1,16 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(514,5): warning MSB8028: The intermediate directory (Release\) contains files shared from another project (OpenGLTemplate.vcxproj).  This can lead to incorrect clean and rebuild behavior.
 cl : command line warning D9025: overriding '/sdl' with '/GS-'
   dllmain.cpp
-C:\Users\Adrian\Documents\cracking\Tibia OpenGL Imgui\OpenGLTemplate\Source\dllmain.cpp(70,25): warning C4244: 'initializing': conversion from '_Rep' to 'int', possible loss of data
+C:\Users\Adrian\Documents\GitHub\Tibia-OpenGL-Imgui\OpenGLTemplate\Source\dllmain.cpp(70,25): warning C4244: 'initializing': conversion from '_Rep' to 'int', possible loss of data
           with
           [
               _Rep=__int64
           ]
 LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
   Generating code
-  2 of 1425 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+  48 of 1424 functions ( 3.4%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    18 functions had inline decision re-evaluated but remain unchanged
+    35 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
 LINK : warning LNK4286: symbol '___glewDeleteBuffers' defined in 'glew32s.lib(glew.obj)' is imported by 'imgui_impl_opengl3.obj'
 LINK : warning LNK4286: symbol '___glewLinkProgram' defined in 'glew32s.lib(glew.obj)' is imported by 'imgui_impl_opengl3.obj'
@@ -46,5 +46,5 @@ LINK : warning LNK4286: symbol '___glewUseProgram' defined in 'glew32s.lib(glew.
 LINK : warning LNK4286: symbol '___glewBindSampler' defined in 'glew32s.lib(glew.obj)' is imported by 'imgui_impl_opengl3.obj'
 LINK : warning LNK4286: symbol '___glewBindVertexArray' defined in 'glew32s.lib(glew.obj)' is imported by 'imgui_impl_opengl3.obj'
 LINK : warning LNK4286: symbol '___glewEnableVertexAttribArray' defined in 'glew32s.lib(glew.obj)' is imported by 'imgui_impl_opengl3.obj'
-glew32s.lib(glew.obj) : warning LNK4099: PDB 'glew_static.pdb' was not found with 'glew32s.lib(glew.obj)' or at 'C:\Users\Adrian\Documents\cracking\Tibia OpenGL Imgui\Release\glew_static.pdb'; linking object as if no debug info
-  OpenGLTemplate.vcxproj -> C:\Users\Adrian\Documents\cracking\Tibia OpenGL Imgui\Release\Tibia OpenGL Imgui.dll
+glew32s.lib(glew.obj) : warning LNK4099: PDB 'glew_static.pdb' was not found with 'glew32s.lib(glew.obj)' or at 'C:\Users\Adrian\Documents\GitHub\Tibia-OpenGL-Imgui\Release\glew_static.pdb'; linking object as if no debug info
+  OpenGLTemplate.vcxproj -> C:\Users\Adrian\Documents\GitHub\Tibia-OpenGL-Imgui\Release\Tibia OpenGL Imgui.dll
