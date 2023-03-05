@@ -12,6 +12,8 @@ https://github.com/Lufzys/OpenGL-Internal-Template
 
 All features should be working. If you find any problem just open a new issue.
 
+Everything is done with Rider IDE from Jetbrains. In case you can't run it with your IDE try Rider.
+
 # TODO:
 
 - Better alerts.
